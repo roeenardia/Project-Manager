@@ -1,0 +1,35 @@
+.task-text {
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  list-style: circle;
+}
+
+section ul {
+  padding-left: 0px;
+}
+
+section li {
+  margin-bottom: 2rem;
+}
+
+section button {
+  background-color: #f77878;
+  border: 2px solid #f77878;
+  color: #cfcfcf;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+section button:hover {
+  color: #fff;
+  background-color: #f23232;
+  border: 2px solid #f23232;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
