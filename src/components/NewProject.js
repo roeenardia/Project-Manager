@@ -1,7 +1,7 @@
-import { use, useRef } from "react";
+import { useRef } from "react";
 
 import Input from "./Input";
-import Button from "../Elements/Button";
+//import Button from "../Elements/Button";
 import Modal from "./Modal";
 
 import "./NewProject.css";
