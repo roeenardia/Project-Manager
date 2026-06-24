@@ -38,8 +38,10 @@ export default function NewProject({ onAdd, onCancel }) {
     <>
       <Modal ref={modal} buttonCaption="Okay">
         <h2>Ivalid Input</h2>
-        <p>Oops... looks like you forgot to enter a value</p>
-        <p>Please make sure you enter a valid value for every input field</p>
+        <p>Oops... looks like you forgot to enter a Description / Date</p>
+        <p>
+          Please make sure you enter a valid description for every input field
+        </p>
       </Modal>
       <div>
         <menu className="menu">

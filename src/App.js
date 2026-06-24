@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import NewProject from "./components/NewProject";
 import ProjectsSidebar from "./components/ProjectsSidebar";
@@ -7,12 +7,35 @@ import SelectedProject from "./components/SelectedProject";
 
 import "./App.css";
 
-function App() {
-  const [projectsState, setProjectState] = useState({
+const STORAGE_KEY = "project-manager-state";
+
+function loadFromStorage() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      return JSON.parse(saved);
+    }
+  } catch (e) {
+    // If parsing fails, fall through to default
+  }
+  return {
     selectedProjectId: undefined,
     projects: [],
     tasks: [],
-  });
+  };
+}
+
+function App() {
+  const [projectsState, setProjectState] = useState(loadFromStorage);
+
+  // Save to localStorage whenever state changes
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(projectsState));
+    } catch (e) {
+      // Storage might be full or unavailable
+    }
+  }, [projectsState]);
 
   function handleAddTask(text) {
     setProjectState((prevState) => {
